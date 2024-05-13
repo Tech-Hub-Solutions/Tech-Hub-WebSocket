@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <title>Notificações da semana</title>
+
+    <style type="text/css">
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+            margin: 0 auto !important;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        @media screen and (max-width: 500px) {
+
+            th {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .padding__lateral {
+                padding-right: 40px !important;
+                padding-left: 40px !important;
+            }
+
+            .padding__lateral--zero {
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+            }
+
+            .padding__altura {
+                padding-top: 40px !important;
+            }
+
+            .padding__altura--hr {
+                padding: 40px 24px !important;
+            }
+
+            .padding__altura--text {
+                padding-bottom: 24px !important;
+            }
+
+            .font__mobile--20 {
+                font-size: 20px !important;
+            }
+
+            .font__mobile--16 {
+                font-size: 16px !important;
+            }
+
+            .font__mobile--14 {
+                font-size: 14px !important;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+<center class="wrapper" width="100%">
+    <div width="100%" style="max-width: 640px;">
+        <table width="100%" class="outer" align="center" style="max-width: 640px;" cellspacing="0" cellpadding="0"
+               border="0">
+
+            <!-- Header -->
+            <tr>
+                <td align="center">
+                    <table width="100%" align="center" style="max-width: 640px; background-color: #004D77;"
+                           cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td align="center" style="padding: 32px 0;">
+                                <img src="https://raw.githubusercontent.com/Tech-Hub-Solutions/Tech-Hub-Images/main/Logos%20Tech%20Hub.png"
+                                     width="155" alt="Logo Tech Hub" style="max-width: 155px; min-width: 122.5px;">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <!-- Espaço -->
+            <tr>
+                <td align="center" class="padding__altura" style="padding-top: 56px;"></td>
+            </tr>
+
+            <!-- Primeiro título -->
+            <tr>
+                <td align="left" style="padding: 0 32px;" class="padding__lateral">
+                    <table width="100%" align="center" style="max-width: 576px;" cellspacing="0" cellpadding="0"
+                           border="0">
+                        <tr>
+                            <td align="left" style="padding: 0 28px;" class="padding__lateral--zero">
+                                <table width="100%" align="center" style="max-width: 520px;" cellspacing="0"
+                                       cellpadding="0" border="0">
+                                    <tr>
+                                        <td align="left" width="32" style="padding-right: 8px;" valign="top">
+                                            <img src="https://raw.githubusercontent.com/Tech-Hub-Solutions/Tech-Hub-Images/main/%C3%8Dcone%20notifica%C3%A7%C3%A3o.png"
+                                                 alt="Ícone notificação"
+                                                 style="max-width: 32px; min-width: 32px;">
+                                        </td>
+                                        <td align="left">
+                                            <font class="font__mobile--20"
+                                                  style="font-family: 'Montserrat'; font-weight: 600; font-size:24px; color: #222;">
+
+                                                Seu perfil recebeu <b th:text="${qtdVisualizacoes}"
+                                                                      style="color: #0F9EEA;">0</b>
+                                                visualizações essa semana
+                                            </font>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <!-- Espaço -->
+            <tr>
+                <td align="center" class="padding__altura" style="padding-top: 56px;"></td>
+            </tr>
+
+            <!-- Box azul -->
+            <tr th:if="${#arrays.length(empresasInteressadas)} > 0">
+                <td align="center" style="padding: 0 32px;">
+                    <table width="100%" align="center"
+                           style="max-width: 386px; background-color: #F1F1F1; border-radius: 24px 0;" cellspacing="0"
+                           cellpadding="0" border="0">
+                        <tr>
+                            <td align="center" style="padding: 32px;">
+                                <table width="100%" align="center" style="max-width: 322px;" cellspacing="0"
+                                       cellpadding="0" border="0">
+                                    <tr>
+                                        <td align="left" style="padding-bottom: 24px;">
+                                            <font class="font__mobile--16"
+                                                  style="font-family: 'Montserrat'; font-weight: 600; font-size:20px; color: #222;">
+                                                Empresas interessadas em você:
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <table width="100%" align="center" style="max-width: 322px;"
+                                                   cellspacing="0" cellpadding="0" border="0">
+                                                <tr>
+                                                    <th:block th:each="empresa : ${empresasInteressadas}">
+                                                        <td align="center" width="50%"
+                                                            style="padding-right: 16px; padding-bottom: 16px;"
+                                                            th:if="${empresaStat.index} < 2"
+                                                        >
+                                                            <table width="100%" align="center"
+                                                                   style="max-width: 145px; background-color: #004D77;"
+                                                                   cellspacing="0" cellpadding="0" border="0">
+                                                                <tr>
+                                                                    <td align="center" style="padding: 16px;">
+                                                                        <font class="font__mobile--14"
+                                                                              style="font-family: 'Montserrat'; font-weight: 400; font-size:20px; color: #fff;">
+                                                                            <strong th:text="${empresa.nome}">Empresa</strong>
+                                                                        </font>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </th:block>
+                                                </tr>
+                                                <tr th:if="${#arrays.length(empresasInteressadas)} >= 2">
+                                                    <th:block th:each="empresa : ${empresasInteressadas}">
+                                                        <td align="center" width="50%"
+                                                            style="padding-right: 16px; padding-bottom: 16px;"
+                                                            th:if="${empresaStat.index} >= 2 and ${empresaStat.index} < 4"
+                                                        >
+                                                            <table width="100%" align="center"
+                                                                   style="max-width: 145px; background-color: #004D77;"
+                                                                   cellspacing="0" cellpadding="0" border="0"
+                                                                   th:if="${empresaStat.index} >= 2 and ${empresaStat.index} < 4">
+                                                                <tr>
+                                                                    <td align="center" style="padding: 16px;">
+                                                                        <font class="font__mobile--14"
+                                                                              style="font-family: 'Montserrat'; font-weight: 400; font-size:20px; color: #fff;">
+                                                                            <strong th:text="${empresa.nome}">Empresa</strong>
+                                                                        </font>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </th:block>
+                                                </tr>
+
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <!-- Espaço -->
+            <tr>
+                <td align="center" class="padding__altura" style="padding-top: 56px;"></td>
+            </tr>
+
+            <!-- E tem mais... -->
+            <tr>
+                <td align="left" style="padding: 0 32px;" class="padding__lateral">
+                    <table width="100%" align="center" style="max-width: 576px;" cellspacing="0" cellpadding="0"
+                           border="0">
+                        <tr>
+                            <td align="left" style="padding: 0 28px;" class="padding__lateral--zero">
+                                <table width="100%" align="center" style="max-width: 520px;" cellspacing="0"
+                                       cellpadding="0" border="0">
+                                    <tr>
+                                        <td align="left" style="padding-bottom: 16px;">
+                                            <font class="font__mobile--16"
+                                                  style="font-family: 'Montserrat'; font-weight: 600; font-size:20px; color: #0F9EEA;">
+                                                E tem mais...
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <font class="font__mobile--20"
+                                                  style="font-family: 'Montserrat'; font-weight: 600; font-size:24px; color: #222;">
+                                                Você recebeu um total de <b th:text="${qtdRecomendacoes}"
+                                                                            style="color: #0F9EEA;">XX</b>
+                                                recomendações das empresas
+                                            </font>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding: 56px 32px;" class="padding__altura--hr" align="center" width="520">
+                    <hr style="border: 1px solid #E7E7E7;">
+                </td>
+            </tr>
+
+            <!-- Texto avulso -->
+            <tr>
+                <td align="center" style="padding: 0 60px; padding-bottom: 32px;" class="padding__altura--text">
+                    <font class="font__mobile--20"
+                          style="font-family: 'Montserrat'; font-weight: 600; font-size:24px; color: #222;">
+                        Corre pra conferir!
+                    </font>
+                </td>
+            </tr>
+
+            <!-- Botão -->
+            <tr>
+                <td align="center">
+                    <table align="center" cellspacing="0" cellpadding="0" border="0" class="centraliza">
+                        <tr>
+                            <td class="button" align="center" width="161" height="56"
+                                style="background-color:#0F9EEA; border-radius:8px; box-sizing: border-box;">
+                                <a href="https://google.com" target="_blank"
+                                   style="font-family:'Montserrat'; font-size:16px; font-weight:bold; color:#FFFFFF;display:inline-block;text-decoration:none;width:161px;">Ir
+                                    para o app</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <!-- Espaço -->
+            <tr>
+                <td align="center" class="padding__altura" style="padding-top: 56px;"></td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+                <td align="center">
+                    <table width="100%" align="center" style="max-width: 640px; background-color: #004D77;"
+                           cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td align="left" style="padding: 32px 60px;" width="98">
+                                <img src="https://raw.githubusercontent.com/Tech-Hub-Solutions/Tech-Hub-Images/main/Logos%20Tech%20Hub.png"
+                                     alt="Logo Tech Hub" style="max-width: 98px; min-width: 98px;">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</center>
+</body>
+
+</html>
